@@ -10,7 +10,7 @@ class OpenAIHelper {
 		this.openai = new OpenAIApi(this.configuration);
 	}
 
-	async search(userMessage) {
+	async search(userMessage, choices) {
 		const response = await this.openai.createChatCompletion({
 			model: 'gpt-3.5-turbo-0613',
 			messages: [
@@ -21,6 +21,7 @@ class OpenAIHelper {
 			max_tokens: 120,
 			frequency_penalty: 0.1,
 			presence_penalty: 0.1,
+			n: choices,
 		});
 
 		return response;
