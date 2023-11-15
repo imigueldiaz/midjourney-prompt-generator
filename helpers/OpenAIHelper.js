@@ -1,13 +1,11 @@
-// OpenAIHelper.js
 const fs = require('fs');
-const {Configuration, OpenAIApi} = require('openai');
+const {OpenAIApi} = require('openai');
 
 class OpenAIHelper {
 	static systemMessage = fs.readFileSync('system.txt', 'utf-8');
 
 	constructor(apiKey) {
-		this.configuration = new Configuration({apiKey});
-		this.openai = new OpenAIApi(this.configuration);
+		this.openai = new OpenAIApi({apiKey});
 	}
 
 	async search(userMessage, choices) {
