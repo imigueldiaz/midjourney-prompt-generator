@@ -1,15 +1,16 @@
 {
-	"name": "ai-experiments",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"discord.js": "^14.11.0",
-		"dotenv": "^16.3.1",
-		"eslint": "^8.44.0",
-		"openai": "^4.17.4"
-	}
+    "name": "midjourney-prompt-generator",
+    "version": "1.0.0",
+    "description": "A discord bot that generates midjourney prompts using OpenAI API",
+    "main": "index.js",
+    "keywords": [],
+    "author": "Ignacio de Miguel Diaz",
+    "email": "imigueldiaz@gmail.com",
+    "license": "GPLv3",
+    "dependencies": {
+        "discord.js": "^14.11.0",
+        "dotenv": "^16.3.1",
+        "eslint": "^8.44.0",
+        "openai": "^4.17.4"
+    }
 }

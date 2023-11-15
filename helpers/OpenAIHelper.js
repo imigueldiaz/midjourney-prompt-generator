@@ -5,15 +5,15 @@ class OpenAIHelper {
     static systemMessage = fs.readFileSync('system.txt', 'utf-8');
 
     constructor(apiKey) {
-        this.openai = new OpenAI(apiKey);
+        this.openai = new OpenAI({ apiKey: apiKey });
     }
 
     async search(userMessage, choices) {
-        const response = await this.openai.createChatCompletion({
-            model: 'gpt-3.5-turbo-0613',
+        const response = await this.openai.chat.completions.create({
+            model: 'gpt-3.5-turbo-1106',
             messages: [
-                {role: 'system', content: OpenAIHelper.systemMessage},
-                {role: 'user', content: userMessage},
+                { role: 'system', content: OpenAIHelper.systemMessage },
+                { role: 'user', content: userMessage },
             ],
             temperature: 0.16,
             max_tokens: 120,
