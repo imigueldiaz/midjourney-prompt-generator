@@ -1,15 +1,16 @@
 const fs = require('fs');
-const {OpenAIApi} = require('openai');
+const {createCompletion} = require('openai');
 
 class OpenAIHelper {
 	static systemMessage = fs.readFileSync('system.txt', 'utf-8');
-
+	
 	constructor(apiKey) {
-		this.openai = new OpenAIApi({apiKey});
+		this.apiKey = apiKey;
 	}
 
 	async search(userMessage, choices) {
-		const response = await this.openai.createChatCompletion({
+		const response = await createCompletion({
+			apiKey: this.apiKey,
 			model: 'gpt-3.5-turbo-0613',
 			messages: [
 				{role: 'system', content: OpenAIHelper.systemMessage},
@@ -27,3 +28,4 @@ class OpenAIHelper {
 }
 
 module.exports = OpenAIHelper;
+
